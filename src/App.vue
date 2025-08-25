@@ -6,10 +6,8 @@ import D3_show from './components/D3_show.vue';
 
 <template>
 
-<D3_show />
+  <D3_show />
 
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
