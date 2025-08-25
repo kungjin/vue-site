@@ -9,6 +9,21 @@ import Ex4 from './components/Ex4.vue';
 const pages = { Ex1, Ex2, Ex3, Ex4 }
 const activeComp = ref(null)
 
+const viewerVisible = ref(false)
+
+const handleOpen = (name) => {
+  if (activeComp.value === name) {
+   
+    viewerVisible.value = !viewerVisible.value
+  } else {
+    activeComp.value = name
+    viewerVisible.value = true
+  }
+}
+const handleClose = () => {
+  viewerVisible.value = false   
+}
+
 </script>
 
 <template>
@@ -17,15 +32,15 @@ const activeComp = ref(null)
   <Ex3 />
   <Ex4 /> -->
   <div class="toolBar">
-  <button @click="activeComp = 'Ex1'"> bind_바인드</button>
-  <button @click="activeComp = 'Ex2'">if_이프</button>
-  <button @click="activeComp = 'Ex3'">show_쇼우</button>
-  <button @click="activeComp = 'Ex4'">for_포</button>
+    <button @click="handleOpen('Ex1')">bind_바인드</button>
+    <button @click="handleOpen('Ex2')">if_이프</button>
+    <button @click="handleOpen('Ex3')">show_쇼우</button>
+    <button @click="handleOpen('Ex4')">for_포</button>
 </div>
  <Transition name="fade">
-  <div v-if="activeComp" id="comp_view">
+ <div v-if="activeComp" id="comp_view" v-show="viewerVisible">
     <KeepAlive>
-      <component :is="pages[activeComp]"></component>
+      <component :is="pages[activeComp]" @close="handleClose" />
     </KeepAlive>
   </div>
   </Transition>
@@ -68,8 +83,7 @@ button:active {
   background-color: #eae4d4;
 }
 
-.fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(4px); }
-.fade-enter-active, .fade-leave-active { transition: opacity .18s ease, transform .18s ease; }
+
 
 
 </style>

@@ -31,7 +31,14 @@
         <div v-bind:class="{ myClass: isImportent }">
             클래스 Importent속성 여부
         </div>
+    
+     <div style="display:flex;justify-content:center;align-items:center">
+   
+    <button @click="emit('close')" style="margin-top: 20px;">닫기</button>
+  </div>
+
     </div>
+
 </template>
 
 <script setup>
@@ -44,6 +51,8 @@ const size3 = ref(40)
 const bgVal = ref(180)
 const isImportent = ref(false)
 const className = ref("impClass")
+
+const emit = defineEmits(['close'])
 
 </script>
 
