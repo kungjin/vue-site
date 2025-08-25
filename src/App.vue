@@ -7,7 +7,7 @@ import Ex3 from './components/Ex3.vue';
 import Ex4 from './components/Ex4.vue';
 
 const pages = { Ex1, Ex2, Ex3, Ex4 }
-const activeComp = ref('Ex1')
+const activeComp = ref(null)
 
 </script>
 
@@ -16,20 +16,29 @@ const activeComp = ref('Ex1')
   <Ex2 />
   <Ex3 />
   <Ex4 /> -->
+  <div class="toolBar">
   <button @click="activeComp = 'Ex1'"> bind_바인드</button>
   <button @click="activeComp = 'Ex2'">if_이프</button>
   <button @click="activeComp = 'Ex3'">show_쇼우</button>
   <button @click="activeComp = 'Ex4'">for_포</button>
-
-  <div id="comp_view">
+</div>
+ <Transition name="fade">
+  <div v-if="activeComp" id="comp_view">
     <KeepAlive>
       <component :is="pages[activeComp]"></component>
     </KeepAlive>
   </div>
+  </Transition>
 
 </template>
 
 <style scoped>
+.toolBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
 button {
   margin: 5px;
   padding: 6px 10px;
@@ -57,6 +66,10 @@ button:active {
   overflow: auto;
   filter: drop-shadow(0 0 1.5px);
   background-color: #eae4d4;
-
 }
+
+.fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(4px); }
+.fade-enter-active, .fade-leave-active { transition: opacity .18s ease, transform .18s ease; }
+
+
 </style>

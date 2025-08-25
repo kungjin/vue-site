@@ -48,9 +48,13 @@ div {
 button {
   padding: 6px 12px;
   margin-bottom: 10px;
-  background: #4caf7f;
+  background:  #4ab7a7;
   color: #fff;
   border: none;
   cursor: pointer;
+}
+
+button:hover{
+    background:  #2b675e;
 }
 </style>
