@@ -16,10 +16,8 @@ const msg = ref("msg")
 
 <style>
 p{
-    background-color: aqua;
+    background-color:  #eac119
 }
-div{
-    border: 3px solid salmon;
-}
+
 
 </style>
