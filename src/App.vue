@@ -1,89 +1,81 @@
 <script setup>
-import { ref } from 'vue'
+import { KeepAlive, ref } from 'vue';
+import D1_bind from './components/D1_bind.vue';
+import D2_if from './components/D2_if.vue';
+import D3_show from './components/D3_show.vue';
+import D4_for from './components/D4_for.vue';
+import D5_event from './components/D5_event.vue';
+import D4_for_Ex from './components/D4_for_Ex.vue';
+import D1_bindUp from './components/D1_bindUp.vue';
 
-import Ex1 from './components/Ex1.vue';
-import Ex2 from './components/Ex2.vue';
-import Ex3 from './components/Ex3.vue';
-import Ex4 from './components/Ex4.vue';
 
-const pages = { Ex1, Ex2, Ex3, Ex4 }
-const activeComp = ref(null)
-
-const viewerVisible = ref(false)
-
-const handleOpen = (name) => {
-  if (activeComp.value === name) {
-   
-    viewerVisible.value = !viewerVisible.value
-  } else {
-    activeComp.value = name
-    viewerVisible.value = true
-  }
-}
-const handleClose = () => {
-  viewerVisible.value = false   
-}
+// 컴포넌트맵
+const pages = { D1_bind, D1_bindUp, D2_if, D3_show, D4_for, D4_for_Ex, D5_event }
+const activeComp = ref('D1_bind')
 
 </script>
 
 <template>
-  <!-- <Ex1 />
-  <Ex2 />
-  <Ex3 />
-  <Ex4 /> -->
-  <div class="toolBar">
-    <button @click="handleOpen('Ex1')">bind_바인드</button>
-    <button @click="handleOpen('Ex2')">if_이프</button>
-    <button @click="handleOpen('Ex3')">show_쇼우</button>
-    <button @click="handleOpen('Ex4')">for_포</button>
-</div>
- <Transition name="fade">
- <div v-if="activeComp" id="comp_view" v-show="viewerVisible">
+
+  <!-- <D1_bind />
+  <D2_if />
+  <D3_show />
+  <D4_for /> -->
+  <!-- 버튼클릭시 보여줄 컴포넌트 -->
+
+  <button @click="activeComp = `D1_bind`"><b>V-bind</b> <br>
+    <hr>변수 사용
+  </button>
+  <button @click="activeComp = `D1_bindUp`"><b>V-bind_up</b> <br>
+    <hr>변수 응용
+  </button>
+
+  <button @click="activeComp = `D2_if`"><b>V-if</b> <br>
+    <hr>조건 분기
+  </button>
+  <button @click="activeComp = `D3_show`"><b>V-show</b> <br>
+    <hr>보이다/감추다
+  </button>
+  <button @click="activeComp = `D4_for`"><b>V-for</b> <br>
+    <hr>~동안 실행
+  
+  </button>
+
+   <button @click="activeComp = `D4_for_Ex`"><b>V-forEx</b> <br>
+    <hr>~동안 응용
+  </button>
+
+  <button @click="activeComp = `D5_event`"><b>V-event</b> <br>
+    <hr>이벤트 발생
+  </button>
+
+ 
+
+  <div class="pageView">
+
     <KeepAlive>
-      <component :is="pages[activeComp]" @close="handleClose" />
+      <component :is="pages[activeComp]"> </component>
     </KeepAlive>
   </div>
-  </Transition>
 
 </template>
 
 <style scoped>
-.toolBar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-  justify-content: center;
+button > hr{
+  margin-top: 5px;
 }
+
 button {
-  margin: 5px;
-  padding: 6px 10px;
-  filter: drop-shadow(0 0 1.5px #123);
+  display: inline-block;
+  margin: 10px;
+  width: 150px;
+
 }
 
-button:hover {
-  background: #245e55;
-  border-color: #245e55;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
-  transform: translateY(-1px)
+.pageView {
+
+  margin: 20px;
+  background-color: #d6d4d4;
+  border: 3px dotted greenyellow;
 }
-
-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
-}
-
-#comp_view {
-  width: 720px;
-  height: 70vh;
-  border: 1px solid #303030;
-  padding: 16px;
-  box-sizing: border-box;
-  overflow: auto;
-  filter: drop-shadow(0 0 1.5px);
-  background-color: #eae4d4;
-}
-
-
-
-
 </style>
