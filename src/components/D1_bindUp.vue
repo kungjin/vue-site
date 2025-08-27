@@ -25,8 +25,10 @@
 
         <!-- 프리뷰: 배열 스타일 + CSS 변수 + 클래스 토글 -->
 
-        <div class="preview" :style="[baseStyle, previewStyle, { '--lh': lh, '--ls': `${ls}em` }]"
-            :class="{ heavy: weight >= 700, tight: ls < 0 }" v-bind="previewAttrs">
+        <div class="preview" :style="[baseStyle, previewStyle, 
+        { '--lh': lh, '--ls': `${ls}em` }]"
+            :class="{ heavy: weight >= 700, tight: ls < 0 }" 
+            v-bind="previewAttrs">
             <p class="label">프리뷰</p>
             <p>PrEtendard — <br>한글 ABC abc 1234 !? 가독성 테스트 문장입니다.</p>
         </div>
@@ -34,8 +36,11 @@
         <!-- 고정 샘플 -->
 
         <div class="grid">
-            <div v-for="s in fixedSizes" :key="s" class="sample" :style="{ fontSize: s }"
-                :class="['chip', { on: s === '${sizePx}px' }]" :date-size="s" :title="`샘플 사이즈 ${s}`">
+            <div v-for="s in fixedSizes" 
+            :key="s" class="sample" 
+            :style="{ fontSize: s }"
+            :class="['chip', { on: s === '${sizePx}px' }]" 
+            :date-size:title="`샘플 사이즈 ${s}`">
                 {{ s }} Pretendard
             </div>
         </div>
@@ -69,7 +74,7 @@ const baseStyle = computed(() => ({
 }))
 
 const previewStyle = computed(() => ({
-    fonstSize: `${sizePx.value}px`,
+    fontSize: `${sizePx.value}px`,
     fontWeight: weight.value,
 
     // lineHeight/letterSpacing은 CSS 변수로도 내려보내는 중
@@ -79,8 +84,10 @@ const previewStyle = computed(() => ({
 // 여러 속성을 한 번에 바인딩 (v-bind="obj")
 
 const previewAttrs = computed(() => ({
-    title: `Size ${sizePx.value}px, 두께 ${weight.value}`,
-    'aria-label': `프리뷰: ${sizePx.value}px, 두께 ${weight.value}`,
+    title: `Size ${sizePx.value}px, 
+    두께 ${weight.value}`,
+    'aria-label': `프리뷰: ${sizePx.value}px, 
+    두께 ${weight.value}`,
     'data-size': sizePx.value,
 }))
 
@@ -118,6 +125,7 @@ section{
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
     margin-bottom: 12px;
+    accent-color: greenyellow;
 }
 
 .controls label {
@@ -154,7 +162,7 @@ section{
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(auto-fit, 1fr));
     gap: 8px;
 }
 

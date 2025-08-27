@@ -17,11 +17,11 @@
 
 a {
   font-weight: 500;
-  color: #245e55;
+  color: yellowgreen;
   text-decoration: inherit;
 }
 a:hover {
-  color: #245e55
+  color: yellowgreen
 }
 
 body {
@@ -48,12 +48,17 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+
 button:hover {
-  border-color: #245e55;
+  border: 2px solid;
+  border-color: yellowgreen;
+  color: rgb(241, 241, 241);
+  background-color: rgb(157, 202, 89);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px auto yellowgreen;
 }
 
 .card {
@@ -73,7 +78,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #245e55;
+    color: yellowgreen;
   }
   button {
     background-color: #f9f9f9;

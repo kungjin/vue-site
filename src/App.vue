@@ -18,48 +18,66 @@ const activeComp = ref('D1_bind')
 </script>
 
 <template>
-
+<div class="container">
   <!-- <D1_bind />
   <D2_if />
   <D3_show />
   <D4_for /> -->
   <!-- 버튼클릭시 보여줄 컴포넌트 -->
 
-  <button @click="activeComp = `D1_bind`"><b>V-bind</b> <br>
+  <button @click="activeComp = `D1_bind`" 
+  :class="{ active: activeComp === 'D1_bind' }">
+  <b>V-bind</b> <br>
     <hr>변수 사용
   </button>
-  <button @click="activeComp = `D1_bindUp`"><b>V-bind_up</b> <br>
+  <button @click="activeComp = `D1_bindUp`"
+  :class="{ active: activeComp === 'D1_bindUp' }">
+    <b>V-bind_up</b> <br>
     <hr>변수 응용
   </button>
 
-  <button @click="activeComp = `D2_if`"><b>V-if</b> <br>
+  <button @click="activeComp = `D2_if`"
+  :class="{ active: activeComp === 'D2_if' }">
+    <b>V-if</b> <br>
     <hr>조건 분기
   </button>
-  <button @click="activeComp = `D3_show`"><b>V-show</b> <br>
+  <button @click="activeComp = `D3_show`"
+  :class="{ active: activeComp === 'D3_show' }">
+    <b>V-show</b> <br>
     <hr>보이다/감추다
   </button>
-  <button @click="activeComp = `D4_for`"><b>V-for</b> <br>
+  <button @click="activeComp = `D4_for`"
+  :class="{ active: activeComp === 'D4_for' }">
+    <b>V-for</b> <br>
     <hr>~동안 실행
-  
+
   </button>
 
-   <button @click="activeComp = `D4_for_Ex`"><b>V-forEx</b> <br>
+  <button @click="activeComp = `D4_for_Ex`"
+  :class="{ active: activeComp === 'D4_for_Ex' }">
+    <b>V-forEx</b> <br>
     <hr>~동안 응용
   </button>
 
-  <button @click="activeComp = `D5_event`"><b>V-event</b> <br>
+  <button @click="activeComp = `D5_event`"
+  :class="{ active: activeComp === 'D5_event' }">
+    <b>V-event</b> <br>
     <hr>이벤트 발생
   </button>
 
- <button @click="activeComp = `D6_method`"><b>V-method</b> <br>
+  <button @click="activeComp = `D6_method`"
+  :class="{ active: activeComp === 'D6_method' }">
+    <b>V-method</b> <br>
     <hr>메소드 구현
   </button>
 
-    <button @click="activeComp = `D7_model`"><b>V-model</b> <br>
+  <button @click="activeComp = `D7_model`"
+  :class="{ active: activeComp === 'D7_model' }">
+    <b>V-model</b> <br>
     <hr>양방향 바인딩
   </button>
- 
-<hr>
+
+  <hr>
 
   <div class="pageView">
 
@@ -67,11 +85,22 @@ const activeComp = ref('D1_bind')
       <component :is="pages[activeComp]"> </component>
     </KeepAlive>
   </div>
-
+</div>
 </template>
 
 <style scoped>
-button > hr{
+
+
+button.active {
+  background-color: rgb(184, 236, 79);
+  color:rgb(255, 255, 255);
+  border: 2px solid #7d7e7d;
+  box-shadow:
+    inset 1.5px 0 1.5px rgba(0, 0, 0, 0.7),
+    0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+button>hr {
   margin-top: 5px;
 }
 
@@ -87,6 +116,6 @@ button {
 
   margin: 20px;
   background-color: #d6d4d4;
-  border: 3px dotted greenyellow;
+  border: 2px dotted greenyellow;
 }
 </style>
