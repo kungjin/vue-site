@@ -11,10 +11,15 @@ import D6_methods from './components/D6_methods.vue';
 import D7_model from './components/D7_model.vue';
 import D8_computed from './components/D8_computed.vue';
 import D9_watchers from './components/D9_watchers.vue';
+import D10_form from './components/D10_form.vue';
 
 
 // 컴포넌트맵
-const pages = { D1_bind, D1_bindUp, D2_if, D3_show, D4_for, D4_for_Ex, D5_event, D6_methods, D7_model, D8_computed, D9_watchers  }
+const pages = 
+{ D1_bind, D1_bindUp, D2_if, D3_show, 
+  D4_for, D4_for_Ex, D5_event, 
+  D6_methods, D7_model, D8_computed, 
+  D9_watchers, D10_form }
 const activeComp = ref('D1_bind')
 
 </script>
@@ -80,6 +85,13 @@ const activeComp = ref('D1_bind')
     <hr>변경 감시 실행
   </button>
 
+   <button @click="activeComp = `D10_form`"
+  :class="{ active: activeComp === 'D10_form' }">
+    <b>V-form</b> <br>
+    <hr>변경 감시 실행
+  </button>
+
+
   <hr>
 
    <button @click="activeComp = `D4_for_Ex`"
@@ -130,9 +142,8 @@ button {
 }
 
 .pageView {
-
   margin: 20px;
   background-color: #d6d4d4;
-  border: 2px dotted greenyellow;
+  border: 3px double greenyellow;
 }
 </style>

@@ -77,21 +77,23 @@ button {
 }
 
 .bg {
-    margin: 10px;
-    border-bottom: 3px double purple;
+    margin-top: 0px;
+    margin: 20px;
+    padding: 10px;
+    border-bottom: 3px double greenyellow;
 }
 
 .b1 {
     width: 200px;
     height: 100px;
-    background-color: yellow;
+    background-color: greenyellow;
     display: inline-block;
 }
 
 .b2 {
     width: 200px;
     height: 200px;
-    background-color: yellow;
+    background-color: greenyellow;
     display: inline-block;
 }
 
