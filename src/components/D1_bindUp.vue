@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h2>* Pretendard Font Guide *</h2>
+        <h2>* PrEtendard Font Guide *</h2>
 
         <div class="controls">
             <label>Size
@@ -28,7 +28,7 @@
         <div class="preview" :style="[baseStyle, previewStyle, { '--lh': lh, '--ls': `${ls}em` }]"
             :class="{ heavy: weight >= 700, tight: ls < 0 }" v-bind="previewAttrs">
             <p class="label">프리뷰</p>
-            <p>PrEtendard — 한글 ABC abc 1234 !? 가독성 테스트 문장입니다.</p>
+            <p>PrEtendard — <br>한글 ABC abc 1234 !? 가독성 테스트 문장입니다.</p>
         </div>
 
         <!-- 고정 샘플 -->

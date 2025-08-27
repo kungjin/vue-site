@@ -7,10 +7,12 @@ import D4_for from './components/D4_for.vue';
 import D5_event from './components/D5_event.vue';
 import D4_for_Ex from './components/D4_for_Ex.vue';
 import D1_bindUp from './components/D1_bindUp.vue';
+import D6_methods from './components/D6_methods.vue';
+import D7_model from './components/D7_model.vue';
 
 
 // 컴포넌트맵
-const pages = { D1_bind, D1_bindUp, D2_if, D3_show, D4_for, D4_for_Ex, D5_event }
+const pages = { D1_bind, D1_bindUp, D2_if, D3_show, D4_for, D4_for_Ex, D5_event, D6_methods, D7_model }
 const activeComp = ref('D1_bind')
 
 </script>
@@ -49,7 +51,15 @@ const activeComp = ref('D1_bind')
     <hr>이벤트 발생
   </button>
 
+ <button @click="activeComp = `D6_method`"><b>V-method</b> <br>
+    <hr>메소드 구현
+  </button>
+
+    <button @click="activeComp = `D7_model`"><b>V-model</b> <br>
+    <hr>양방향 바인딩
+  </button>
  
+<hr>
 
   <div class="pageView">
 
@@ -69,6 +79,7 @@ button {
   display: inline-block;
   margin: 10px;
   width: 150px;
+  filter: drop-shadow(2px 0 1.5px);
 
 }
 
