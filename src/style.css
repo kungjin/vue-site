@@ -51,7 +51,7 @@ button {
 
 
 button:hover {
-  border: 2px solid;
+  border: none;
   border-color: yellowgreen;
   color: rgb(241, 241, 241);
   background-color: rgb(157, 202, 89);

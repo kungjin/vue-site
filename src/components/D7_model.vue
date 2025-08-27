@@ -27,11 +27,11 @@
             <!-- 입력 담당 -->
             <form @submit.prevent="addItem">
                 <p>
-                <h2>구매목록?</h2>
+                <legend>구매목록?</legend>
                 <input type="text" v-model="itemName" placeholder="목록 이름을 입력하세요">
                 </p>
                 <p>
-                <h2>구매 갯수?</h2>
+                <legend>구매 갯수?</legend>
                 <input type="number" v-model="itemNumber" placeholder="구매 갯수를 입력하세요">
 
                 </p>

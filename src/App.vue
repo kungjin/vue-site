@@ -9,10 +9,12 @@ import D4_for_Ex from './components/D4_for_Ex.vue';
 import D1_bindUp from './components/D1_bindUp.vue';
 import D6_methods from './components/D6_methods.vue';
 import D7_model from './components/D7_model.vue';
+import D8_computed from './components/D8_computed.vue';
+import D9_watchers from './components/D9_watchers.vue';
 
 
 // 컴포넌트맵
-const pages = { D1_bind, D1_bindUp, D2_if, D3_show, D4_for, D4_for_Ex, D5_event, D6_methods, D7_model }
+const pages = { D1_bind, D1_bindUp, D2_if, D3_show, D4_for, D4_for_Ex, D5_event, D6_methods, D7_model, D8_computed, D9_watchers  }
 const activeComp = ref('D1_bind')
 
 </script>
@@ -30,11 +32,6 @@ const activeComp = ref('D1_bind')
   <b>V-bind</b> <br>
     <hr>변수 사용
   </button>
-  <button @click="activeComp = `D1_bindUp`"
-  :class="{ active: activeComp === 'D1_bindUp' }">
-    <b>V-bind_up</b> <br>
-    <hr>변수 응용
-  </button>
 
   <button @click="activeComp = `D2_if`"
   :class="{ active: activeComp === 'D2_if' }">
@@ -50,23 +47,17 @@ const activeComp = ref('D1_bind')
   :class="{ active: activeComp === 'D4_for' }">
     <b>V-for</b> <br>
     <hr>~동안 실행
-
   </button>
 
-  <button @click="activeComp = `D4_for_Ex`"
-  :class="{ active: activeComp === 'D4_for_Ex' }">
-    <b>V-forEx</b> <br>
-    <hr>~동안 응용
-  </button>
-
+ 
   <button @click="activeComp = `D5_event`"
   :class="{ active: activeComp === 'D5_event' }">
     <b>V-event</b> <br>
     <hr>이벤트 발생
   </button>
 
-  <button @click="activeComp = `D6_method`"
-  :class="{ active: activeComp === 'D6_method' }">
+  <button @click="activeComp = `D6_methods`"
+  :class="{ active: activeComp === 'D6_methods' }">
     <b>V-method</b> <br>
     <hr>메소드 구현
   </button>
@@ -75,6 +66,32 @@ const activeComp = ref('D1_bind')
   :class="{ active: activeComp === 'D7_model' }">
     <b>V-model</b> <br>
     <hr>양방향 바인딩
+  </button>
+
+    <button @click="activeComp = `D8_computed`"
+  :class="{ active: activeComp === 'D8_computed' }">
+    <b>V-computed</b> <br>
+    <hr>계산된 코드
+  </button>
+
+    <button @click="activeComp = `D9_watchers`"
+  :class="{ active: activeComp === 'D9_watchers' }">
+    <b>V-watchers</b> <br>
+    <hr>변경 감시 실행
+  </button>
+
+  <hr>
+
+   <button @click="activeComp = `D4_for_Ex`"
+  :class="{ active: activeComp === 'D4_for_Ex' }">
+    <b>스마트 영수증</b> <br>
+    <hr>V-forEx
+  </button>
+
+    <button @click="activeComp = `D1_bindUp`"
+  :class="{ active: activeComp === 'D1_bindUp' }">
+    <b>웹 폰트 가이드 </b> <br>
+    <hr>V-bind_up
   </button>
 
   <hr>

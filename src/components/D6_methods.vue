@@ -21,17 +21,16 @@
 
     <div class="bg">
         <div class="b4">
-            <img 
-            id="라이거" 
-            @click="myMethod($event,`와썹~`)" 
-            :src="img_tiger_square" 
-            alt="img_tiger_square">
+            <img id="라이거" 
+            @click="swapOnce"
+            :src="imgSrc" alt="tiger">
             <p>{{ msgAndId }}</p>
         </div>
     </div>
 </template>
 
 <script setup>
+import img_tiger_square_ch from '../assets/img_tiger_square_ch.png'
 import img_tiger_square from '../assets/img_tiger_square.jpeg'
 import { ref } from 'vue';
 const txt = ref(`txt`)
@@ -54,18 +53,24 @@ const addCount = (num) => {
     count.value += num
 }
 
+const imgSrc = ref(img_tiger_square)
 const msgAndId = ref(``)
-const myMethod =(e,msg) => {
-    // msgAndId.value = msg
-    // msgAndId.value += e.target.id
+// const myMethod = (e, msg) => {
+//     // msgAndId.value = msg
+//     // msgAndId.value += e.target.id
 
-    msgAndId.value = `${e.target.id}야 ${msg} 헵어 Nice day! Broooo~!!`
+//     msgAndId.value = `${e.target.id}야 ${msg} 헵어 Nice day! Broooo~!!`
+// }
+
+const swapOnce = (e) => {
+  imgSrc.value = img_tiger_square_ch
+  msgAndId.value = `${e.currentTarget .id}야 와썹~ 헵어 Nice day! Broooo~!!`
 }
 
 </script>
 
 <style scoped>
-button{
+button {
     width: 100px;
     margin-top: 10px;
     font-size: small;
@@ -89,10 +94,9 @@ button{
     background-color: yellow;
     display: inline-block;
 }
-.b4>img{
+
+.b4>img {
     width: 200px;
     height: 200px;
 }
-
-
 </style>
