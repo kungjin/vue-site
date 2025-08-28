@@ -1,5 +1,10 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+* {
+  box-sizing: border-box;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 :root {
   font-family: 'Pretendard', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -20,6 +25,7 @@ a {
   color: yellowgreen;
   text-decoration: inherit;
 }
+
 a:hover {
   color: yellowgreen
 }
@@ -37,50 +43,40 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-
-button:hover {
-  border: none;
-  border-color: yellowgreen;
-  color: rgb(241, 241, 241);
-  background-color: rgb(157, 202, 89);
-}
-button:focus,
-button:focus-visible {
-  outline: 2px auto yellowgreen;
-}
-
 .card {
   padding: 2em;
 }
 
 #app {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
+
+footer {
+  grid-area: footer;
+   display: flex;   
+  width: 100%;
+  margin: 0;
+  height: 120px;
+
+
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: yellowgreen;
   }
+
   button {
     background-color: #f9f9f9;
   }
+
+
 }
