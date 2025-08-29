@@ -30,8 +30,8 @@
 </template>
 
 <script setup>
-import img_tiger_square_ch from '../assets/img_tiger_square_ch.png'
-import img_tiger_square from '../assets/img_tiger_square.jpeg'
+import img_tiger_square_ch from '../../assets/img_tiger_square_ch.png'
+import img_tiger_square from '../../assets/img_tiger_square.jpeg'
 import { ref } from 'vue';
 const txt = ref(`txt`)
 // const changeText = () => {

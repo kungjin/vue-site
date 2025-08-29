@@ -9,11 +9,14 @@
             <!-- 리스트 목록  -->
             <nav class="gnb">
                 <ul>
-                    <li><router-link to="/">
+                    <li class="single-btn">
+                        <router-link to="/">
                             Home
-                        </router-link></li>
+                        </router-link>
+                    </li>
 
-                    <li><router-link to="/about">
+                    <li class="single-btn">
+                        <router-link to="/about" @click="setPreview('about')">
                             About
                         </router-link>
                     </li>
@@ -26,10 +29,10 @@
                             Example
                         </button>
                         <ul id="ex-sub" class="submenu" :class="{ show: open === 'ex' }">
-                            <li><router-link to="/example/html">HTML</router-link></li>
-                            <li><router-link to="/example/javascript">JavaScript</router-link></li>
-                            <li><router-link to="/example/react">React</router-link></li>
-                            <li><router-link to="/example/vue">Vue</router-link></li>
+                            <li><router-link to="/example/html" @click="setPreview('html')">HTML</router-link></li>
+                            <li><router-link to="/example/javascript" @click="setPreview('javascrip')">JavaScript</router-link></li>
+                            <li><router-link to="/example/react" @click="setPreview('react')">React</router-link></li>
+                            <li><router-link to="/example/vue" @click="setPreview('vue')">Vue</router-link></li>
                         </ul>
                     </li>
 
@@ -55,42 +58,45 @@
                 사진 슬라이더 배너
             </div>
 
-            <button>공지사항 </button>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+            <section class="panel">
+                <button class="panel-title" type="button"> 공지사항 </button>
+                <ul class="notice">
+                    <li>공지 1</li>
+                    <li>공지 2</li>
+                    <li>공지 3</li>
+                </ul>
+            </section>
 
-            <button>갤러리 </button>
-            <ul>
-                <li>
-                    <img src="" alt="">
-                    <p></p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p></p>
-                </li>
-            </ul>
+            <section class="panel">
+                <button class="panel-title" type="button"> 갤러리 </button>
+                <ul class="gallery">
+                    <li><img src="https://picsum.photos/seed/g1/120/80" alt="">
+                        <p>설명 1</p>
+                    </li>
+                    <li><img src="https://picsum.photos/seed/g2/120/80" alt="">
+                        <p>설명 2</p>
+                    </li>
+                </ul>
+            </section>
 
-            <ul>
-                <li><img src="" alt=""></li>
-                <li><img src="" alt=""></li>
-                <li><img src="" alt=""></li>
-                <li><img src="" alt=""></li>
+            <ul class="quick">
+                <li><img src="https://picsum.photos/seed/q1/60/40" alt=""></li>
+                <li><img src="https://picsum.photos/seed/q2/60/40" alt=""></li>
+                <li><img src="https://picsum.photos/seed/q3/60/40" alt=""></li>
+                <li><img src="https://picsum.photos/seed/q4/60/40" alt=""></li>
             </ul>
 
 
         </aside>
 
         <main>
-            <slot>-----우측 이미지----</slot>
+              <RightPane />
         </main>
 
         <footer>
             <div class="foot_lo">
-                <div>
+
+                <div class="foot_lo_1">
                     <a class="brand" href="/" aria-label="홈">
                         <img src="/favicon.svg" alt="LOGO" />
                     </a>
@@ -113,16 +119,18 @@
 
 <script setup>
 import { ref } from 'vue';
+import { previewState } from '../pages/preview'
+import RightPane from '../pages/RightPane.vue';
+const setPreview = (k) => (previewState.key = k)
+
 
 const open = ref(null)
-const toggle = () => (open.value = open.value === key ? null : key)
+const toggle = (key) => (open.value = open.value === key ? null : key)
 </script>
 
 <style scoped>
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+* {
+    font-family: 'Pretendard', system-ui, Helvetica, Arial, sans-serif;
 }
 
 
@@ -137,11 +145,9 @@ ul {
         "footer footer footer";
 }
 
-
-
-.header {
-    grid-area: header;
+header{
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 16px;
     padding: 10px 16px;
@@ -149,24 +155,152 @@ ul {
     background: #fff;
 }
 
+header {
+    grid-area: header;
+}
+
+aside {
+    grid-area: aside;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
 .brand img {
     width: 120px;
     height: 80px;
+}
+
+.gnb ul {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    align-items: center;
+}
+
+.single-btn {
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 10px;
+    border-radius: 2px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.menu-btn,
+.sub-btn,
+.gnb a {
+    font-size: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    padding: 8px 10px;
+    border-radius: 2px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    background: #f4f4f4;
+}
+
+
+/* 드롭다운 */
+.has-sub {
+    position: static;
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu {
+    position: static;
+    min-width: 200px;
+    background: #333;
+    color: #fff;
+    border-radius: 6px;
+
+    margin-top: 0px;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+    transition: .15s ease;
+    cursor: pointer;
+}
+
+.submenu.show {
+    margin-top: 3px;
+    padding: 0 2px;
+    opacity: 1;
+    padding: 6px;
+    pointer-events: auto;
+    max-height: 400px;
+
+}
+
+.submenu a {
+    display: block;
+    padding: 8px 10px;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.submenu a:hover {
+    background: #444;
 }
 
 
 
 
 
+.quick {
+    display: flex;
+    justify-content: center;
+}
 
+.quick img {
+    margin: 15px;
+}
 
+.gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery img {
+    margin: 0 18px;
+}
 
 .foot_lo {
     display: flex;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
+    width: 100%;
 }
+
+
 
 .links {
     display: flex;
