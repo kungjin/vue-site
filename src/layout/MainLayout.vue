@@ -30,7 +30,8 @@
                         </button>
                         <ul id="ex-sub" class="submenu" :class="{ show: open === 'ex' }">
                             <li><router-link to="/example/html" @click="setPreview('html')">HTML</router-link></li>
-                            <li><router-link to="/example/javascript" @click="setPreview('javascrip')">JavaScript</router-link></li>
+                            <li><router-link to="/example/javascript"
+                                    @click="setPreview('javascrip')">JavaScript</router-link></li>
                             <li><router-link to="/example/react" @click="setPreview('react')">React</router-link></li>
                             <li><router-link to="/example/vue" @click="setPreview('vue')">Vue</router-link></li>
                         </ul>
@@ -56,6 +57,7 @@
         <aside>
             <div class="banner">
                 사진 슬라이더 배너
+                <!-- (삶의 명언 같은거, 급훈 ) -->
             </div>
 
             <section class="panel">
@@ -90,7 +92,7 @@
         </aside>
 
         <main>
-              <RightPane />
+            <RightPane />
         </main>
 
         <footer>
@@ -145,7 +147,7 @@ const toggle = (key) => (open.value = open.value === key ? null : key)
         "footer footer footer";
 }
 
-header{
+header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -177,6 +179,7 @@ ul {
     margin: 0;
     padding: 0;
 }
+
 
 
 .brand img {
@@ -271,6 +274,28 @@ ul {
 }
 
 
+.banner {
+    display: flex;
+    min-height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel{
+    text-align: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.panel-title{
+    margin-left: 20px;
+    border: none;
+    border-radius: 7px 7px 0 0;
+}
+.notice{
+    font-size: 13px;
+    margin: 0 20px;
+}
 
 
 
@@ -319,6 +344,11 @@ ul {
     font-size: 13px;
 }
 
+a {
+        margin: 0;
+        padding: 0;
+    }
+
 @media (max-width: 960px) {
     .site {
         grid-template-columns: 1fr;
@@ -329,5 +359,41 @@ ul {
             "right"
             "footer";
     }
+
+    .gnb {
+        width: 100%;
+    }
+
+    .gnb ul {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .gnb li {
+        width: 100%;
+    }
+
+
+    .gnb a,
+    .menu-btn,
+    .sub-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 14px;
+        border-radius: 6px;
+    }
+
+    ul,
+    li,
+    .single-btn {
+        margin: 0;
+        padding: 0;
+    }
+
+
 }
 </style>
