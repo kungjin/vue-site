@@ -187,6 +187,13 @@ ul {
     height: 80px;
 }
 
+.gnb a {
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+}
+
 .gnb ul {
     margin: 0;
     display: flex;
@@ -195,7 +202,10 @@ ul {
     align-items: center;
 }
 
+
+
 .single-btn {
+    margin: 0;
     font-size: 15px;
     text-decoration: none;
     font-weight: 700;
@@ -207,9 +217,13 @@ ul {
     min-width: 200px;
 }
 
+.slide{
+    width: 100%;
+    height: 100%;
+}
+
 .menu-btn,
-.sub-btn,
-.gnb a {
+.sub-btn {
     font-size: 15px;
     text-decoration: none;
     color: #333;
@@ -281,18 +295,19 @@ ul {
     align-items: center;
 }
 
-.panel{
+.panel {
     text-align: left;
     width: 100%;
     margin-bottom: 10px;
 }
 
-.panel-title{
+.panel-title {
     margin-left: 20px;
     border: none;
     border-radius: 7px 7px 0 0;
 }
-.notice{
+
+.notice {
     font-size: 13px;
     margin: 0 20px;
 }
@@ -344,10 +359,7 @@ ul {
     font-size: 13px;
 }
 
-a {
-        margin: 0;
-        padding: 0;
-    }
+
 
 @media (max-width: 960px) {
     .site {
